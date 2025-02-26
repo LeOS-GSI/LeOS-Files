@@ -28,40 +28,8 @@ Subject: [PATCH] app name
  app/src/main/res/values/strings.xml        | 2 +-
  22 files changed, 24 insertions(+), 24 deletions(-)
 
-diff --git a/app/build.gradle b/app/build.gradle
-index 0a5c60e8..2d564ca5 100644
---- a/app/build.gradle
-+++ b/app/build.gradle
-@@ -24,13 +24,13 @@ android {
-     compileSdk 34
-     ndkVersion '26.1.10909125'
-     defaultConfig {
--        applicationId 'me.zhanghai.android.files'
-+        applicationId 'me.leos.android.files'
-         minSdk 21
-         // Not supporting notification runtime permission yet.
-         //noinspection OldTargetApi
-         targetSdk 34
--        versionCode 34
--        versionName '1.6.3'
-+        versionCode 161
-+        versionName '1.6.4'
-         resValue 'string', 'app_version', versionName + ' (' + versionCode + ')'
-         buildConfigField 'String', 'FILE_PROVIDIER_AUTHORITY', 'APPLICATION_ID + ".file_provider"'
-         resValue 'string', 'app_provider_authority', applicationId + '.app_provider'
-diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
-index ac67576d..1d16484b 100644
---- a/app/src/main/AndroidManifest.xml
-+++ b/app/src/main/AndroidManifest.xml
-@@ -46,7 +46,7 @@
-         android:banner="@drawable/banner"
-         android:fullBackupContent="true"
-         android:icon="@mipmap/launcher_icon"
--        android:label="@string/app_name"
-+        android:label="LeOS-Files"
-         android:requestLegacyExternalStorage="true"
-         android:requestRawExternalStorageAccess="true"
-         android:resizeableActivity="true"
+
+
 diff --git a/app/src/main/res/values-bg/strings.xml b/app/src/main/res/values-bg/strings.xml
 index 5ff13899..e1d47ebf 100644
 --- a/app/src/main/res/values-bg/strings.xml

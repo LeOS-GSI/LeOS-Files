@@ -8,7 +8,6 @@ package me.zhanghai.android.files.provider.ftp
 import java8.nio.file.FileAlreadyExistsException
 import java8.nio.file.NoSuchFileException
 import java8.nio.file.StandardCopyOption
-import me.zhanghai.android.files.compat.toInstantCompat
 import me.zhanghai.android.files.provider.common.CopyOptions
 import me.zhanghai.android.files.provider.common.copyTo
 import me.zhanghai.android.files.provider.ftp.client.Client
@@ -79,7 +78,7 @@ internal object FtpCopyMove {
                         try {
                             targetOutputStream.close()
                         } catch (e: IOException) {
-                            throw IOException(e).toFileSystemExceptionForFtp(target.toString())
+                            throw e.toFileSystemExceptionForFtp(target.toString())
                         } finally {
                             if (!successful) {
                                 try {
@@ -94,7 +93,7 @@ internal object FtpCopyMove {
                     try {
                         sourceInputStream.close()
                     } catch (e: IOException) {
-                        throw IOException(e).toFileSystemExceptionForFtp(source.toString())
+                        throw e.toFileSystemExceptionForFtp(source.toString())
                     }
                 }
             }
@@ -105,7 +104,7 @@ internal object FtpCopyMove {
             val timestamp = sourceFile.timestamp
             if (timestamp != null) {
                 try {
-                    Client.setLastModifiedTime(target, sourceFile.timestamp.toInstantCompat())
+                    Client.setLastModifiedTime(target, timestamp.toInstant())
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }
